@@ -1,0 +1,194 @@
+/* Importation des polices */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500&display=swap');
+
+/* Réinitialisation et style global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: url('https://media.istockphoto.com/id/1160534857/photo/background-of-the-many-american-one-hundred-dollar-banknotes.jpg?s=170667a&w=is&k=20&c=W-VHsbfovQaz-skDHZRa7HmexuRHmz4oo1hh9Rp02no=') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Filtre sombre pour améliorer le contraste */
+    z-index: 1;
+}
+
+/* Conteneur principal */
+.login-container {
+    background: rgba(168, 181, 162, 0.5); /* Vert olive (#A8B5A2) avec 50% de transparence */
+    backdrop-filter: blur(8px); /* Effet de brouillard */
+    -webkit-backdrop-filter: blur(8px); /* Support pour Safari */
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* En-tête */
+.login-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    color: #ffff; /* Vert foncé */
+    margin-bottom: 0.5rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Ombre pour lisibilité */
+}
+
+.login-header p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #6B7280; /* Gris verdâtre */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulaire */
+.login-form {
+    margin-top: 2rem;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.8rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 2.8rem;
+    border: 2px solid #EDEDED; /* Beige clair */
+    border-radius: 10px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.8); /* Fond input légèrement opaque */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db; /* Vert foncé */
+    box-shadow: 0 0 8px rgba(75, 94, 170, 0.2);
+}
+
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 2.8rem;
+    transform: translateY(-50%);
+    color: #6B7280; /* Gris verdâtre */
+    font-size: 16px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Ombre pour lisibilité */
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    top: -12px;
+    left: 1.2rem;
+    font-size: 13px;
+    color: #3498db; /* Vert foncé */
+    background: #EDEDED; /* Beige clair */
+    padding: 0 0.3rem;
+}
+
+.form-group .icon {
+    position: absolute;
+    top: 50%;
+    left: 0.8rem;
+    transform: translateY(-50%);
+    color: #6B7280; /* Gris verdâtre */
+    width: 20px;
+    height: 20px;
+}
+
+/* Messages d'erreur */
+.error {
+    color: #F28B82; /* Corail doux */
+    font-size: 13px;
+    display: block;
+    margin-top: 0.3rem;
+    text-align: left;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Ombre pour lisibilité */
+}
+
+/* Bouton animé */
+.login-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(to right, #3498db, #6B7280); /* Dégradé vert foncé à gris verdâtre */
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: left 0.5s ease;
+}
+
+.login-btn:hover::before {
+    left: 0;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(75, 94, 170, 0.4); /* Glow vert foncé */
+}
+
+.login-btn:active {
+    transform: scale(0.98);
+}
+
+/* Lien d'inscription */
+.register-link {
+    margin-top: 1.5rem;
+}
+
+.register-link a {
+    color: #ffff; /* Vert foncé */
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Ombre pour lisibilité */
+}
+
+.register-link a:hover {
+    color: #A8B5A2; /* Vert olive clair */
+    text-decoration: underline;
+}
